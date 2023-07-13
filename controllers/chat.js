@@ -35,7 +35,7 @@ exports.getAllChats = async (req, res) => {
     if (!query)
       return res
         .status(400)
-        .send({ success: false, message: "Query doesn't exist" });
+        .send({ success: false, message: "Your query doesn't exist" });
     res.send(query);
   } catch (err) {
     res.status(400).send({ success: false, message: err.message });
