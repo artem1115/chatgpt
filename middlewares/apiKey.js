@@ -3,7 +3,7 @@ const User = require("../models/User");
 exports.checkApiKey = async (req, res, next) => {
   try {
     const user = await User.findOne({ apiKey: req.params.apiKey });
-    if (!user) return res.status(401).send({ message: "Unauthorised" });
+    if (!user) return res.status(401).send({ message: "You are unauthorised" });
     req.queryId = user.queries;
     req.userId = user._id;
     next();
