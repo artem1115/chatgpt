@@ -10,12 +10,12 @@ exports.login = async (req, res) => {
     if (!findUser)
       return res
         .status(401)
-        .send({ success: false, message: "User doesn't exist" });
+        .send({ success: false, message: "The current user doesn't exist" });
     const passwordMatch = compareSync(req.body.password, findUser.password);
     if (!passwordMatch)
       return res
         .status(401)
-        .send({ success: false, message: "Wrong password" });
+        .send({ success: false, message: "Password is wrong!" });
     findUser.password = undefined;
     res.send(findUser);
   } catch (err) {
